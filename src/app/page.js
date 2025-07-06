@@ -11,3 +11,5 @@ export default function Home() {
 </div>
   )
 }
+
+// DATABASE_URL="postgresql://postgres.cnoxfbfzpqcusyhhdixz:[YOUR-PASSWORD]@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres"
