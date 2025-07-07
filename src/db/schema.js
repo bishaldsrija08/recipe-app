@@ -1,14 +1,11 @@
-const { db } = require("./db");
+import { sql } from "drizzle-orm"
+import { pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core"
 
-const { pgTable, serial, text, timestamp, varchar } = require("drizzle-orm/pg-core");
-const { sql } = require("drizzle-orm");
-
-// Define the schema for the 'recipe' table
-export const recipes = pgTable("recipe", {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 50 }).notNull(),
-    description: text("description").notNull(),
-    subname: varchar("subname", { length: 50 }).notNull(),
-    createdAt: timestamp("created_at").defaultNow(sql`CURRENT_TIMESTAMP`),
-    updatedAt: timestamp("updated_at").defaultNow(sql`CURRENT_TIMESTAMP`)
+export const recipes = pgTable("recipes", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 50 }).notNull().unique(),
+  description: text("description").notNull(),
+  subname: varchar("subname", { length: 100 }),
+  createdat: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
+  updatedat: timestamp("updated_at").default(sql`CURRENT_TIMESTAMP`)
 })

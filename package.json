@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "type": "module",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:migration": "drizzle-kit generate --config=drizzleConfig.js",
-    "db:migrate": "node ./migrate.js"
+    "db:migration": "drizzle-kit generate --config=drizzle.config.js",
+    "db:migrate": "node -r esbuild-register ./migrate.js"
   },
   "dependencies": {
     "drizzle-kit": "^0.31.4",
