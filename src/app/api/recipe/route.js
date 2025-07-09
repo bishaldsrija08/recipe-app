@@ -1,6 +1,7 @@
-import { db } from "@/db/db"
-import { recipes } from "@/db/schema"
+import { db } from "../../../db/db"
+import { recipes } from "../../../db/schema"
 
+//get all recipes from recipe table
 export async function GET() {
     const  data = await db.select().from(recipes)
     return Response.json({
