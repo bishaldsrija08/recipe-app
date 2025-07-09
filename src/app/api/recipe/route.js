@@ -3,7 +3,7 @@ import { recipes } from "../../../db/schema"
 
 //get all recipes from recipe table
 export async function GET() {
-    const  data = await db.select().from(recipes)
+    const data = await db.select().from(recipes)
     return Response.json({
         message: "Data fetched successfully!",
         data
