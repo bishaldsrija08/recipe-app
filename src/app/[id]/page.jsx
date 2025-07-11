@@ -1,22 +1,26 @@
 import Link from 'next/link'
 import React from 'react'
 
-const Single = async ({ params }) => {
-    let recipe;
+const fetchSingleRecipe = async (recipeId) => {
     try {
-        const recipeId = params.id;
         const response = await fetch(`http://localhost:3000/api/recipe/${recipeId}`)
         if (!response.ok) {
             throw new Error('Failed to fetch recipe');
         }
         const data = await response.json();
-        recipe = data.data[0]
+        return data.data[0]
 
     } catch (error) {
         console.error("Error fetching recipe:", error);
         return [];
 
     }
+}
+
+const Single = async ({ params }) => {
+    const recipeId = params.id;
+    const recipe = await fetchSingleRecipe(recipeId);
+
     return (
         <div className="px-2 py-20 w-full flex justify-center">
             <div className="bg-white lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg rounded-lg">
