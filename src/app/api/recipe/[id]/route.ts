@@ -56,7 +56,6 @@ export async function PATCH(request, urlData) {
         }
 
         const updateData = await request.json();
-
         await db.update(recipes).set(updateData).where(eq(recipes.id, id));
 
         return Response.json({
