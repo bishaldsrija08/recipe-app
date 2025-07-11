@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import DeleteButton from './components/Delete';
 
 const fetchSingleRecipe = async (recipeId) => {
     try {
@@ -38,12 +39,10 @@ const Single = async ({ params }) => {
                         {recipe.description}
                     </p>
                     <div className="mt-6 flex items-center space-x-4">
-                        <div class="mt-8">
-                            <Link href="/1/edit" class="bg-gray-900 text-gray-100 px-5 py-3 font-semibold rounded">Edit Recipe</Link>
+                        <div className="mt-8">
+                            <Link href="/1/edit" className="bg-gray-900 text-gray-100 px-5 py-3 font-semibold rounded">Edit Recipe</Link>
                         </div>
-                        <div class="mt-8">
-                            <Link href="/delete" class="bg-red-900 text-gray-100 px-5 py-3 font-semibold rounded">Delete Recipe</Link>
-                        </div>
+                      <DeleteButton recipeId={recipe.id}/>
                     </div>
                 </div>
             </div>
