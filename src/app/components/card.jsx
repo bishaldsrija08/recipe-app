@@ -1,9 +1,8 @@
 import Link from "next/link"
 
 const Card = ({ recipe }) => {
-    console.log(recipe)
     return (
-        <Link href='/1' className="hover:shadow-lg transition-shadow duration-300 ease-in-out">
+        <Link href={`/${recipe?.id}`} className="hover:shadow-lg transition-shadow duration-300 ease-in-out">
 
             <div className="flex px-3 py-3">
                 <div className="max-w-sm rounded overflow-hidden shadow-lg">

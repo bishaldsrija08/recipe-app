@@ -19,7 +19,6 @@ const fetchRecipes = async () => {
 export default async function Home() {
 
   const { data } = await fetchRecipes()
-  console.log(data)
 
   return (
     <div className="flex flex-wrap justify-center gap-4 p-4">
