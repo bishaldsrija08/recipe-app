@@ -40,7 +40,7 @@ const Single = async ({ params }) => {
                     </p>
                     <div className="mt-6 flex items-center space-x-4">
                         <div className="mt-8">
-                            <Link href="/1/edit" className="bg-gray-900 text-gray-100 px-5 py-3 font-semibold rounded">Edit Recipe</Link>
+                            <Link href={`/edit/${recipe.id}`} className="bg-gray-900 text-gray-100 px-5 py-3 font-semibold rounded">Edit Recipe</Link>
                         </div>
                       <DeleteButton recipeId={recipe.id}/>
                     </div>
