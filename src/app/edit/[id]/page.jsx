@@ -31,7 +31,6 @@ const Edit = ({ params }) => {
       } catch (error) {
         console.error("Error fetching recipe:", error);
       } finally {
-        setLoading(false);
       }
     };
 
